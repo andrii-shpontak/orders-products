@@ -1,9 +1,8 @@
-.navbar {
-  border-right: 0.063rem solid #f0f3f5;
-  height: var(--app-height);
-  position: fixed;
+nav {
+  background-color: #f0f3f5 !important;
+  height: calc(var(--app-height) - 4rem);
   left: 0;
-  top: 0;
+  bottom: 0;
 }
 
 .nav-link {
@@ -23,7 +22,7 @@
 }
 
 #userSettings {
-  cursor: pointer;
+  cursor: not-allowed;
   background-color: #f0f3f5;
   background-size: cover;
   display: flex;

@@ -1,0 +1,9 @@
+.top-menu {
+  height: 4rem;
+}
+
+.date-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
