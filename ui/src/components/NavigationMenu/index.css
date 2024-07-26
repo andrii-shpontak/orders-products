@@ -1,0 +1,37 @@
+.navbar {
+  border-right: 0.063rem solid #f0f3f5;
+  height: var(--app-height);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.nav-link {
+  font-size: 1.125rem;
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 5rem;
+  height: 5rem;
+  position: relative;
+  object-fit: cover;
+}
+
+#userSettings {
+  cursor: pointer;
+  background-color: #f0f3f5;
+  background-size: cover;
+  display: flex;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  box-sizing: border-box;
+}

@@ -1,9 +1,18 @@
+import 'animate.css/animate.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AppRouter from './AppRouter';
 import reportWebVitals from './reportWebVitals';
+
+const appHeight = (): void => {
+  const doc = document.documentElement;
+  doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+};
+window.addEventListener('resize', appHeight);
+appHeight();
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
