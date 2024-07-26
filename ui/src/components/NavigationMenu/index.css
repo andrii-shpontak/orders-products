@@ -1,36 +1,30 @@
 nav {
+  display: inline-block;
   background-color: #f0f3f5 !important;
   height: calc(var(--app-height) - 4rem);
-  left: 0;
-  bottom: 0;
-}
-
-.nav-link {
-  font-size: 1.125rem;
-}
-
-.container-fluid {
-  display: flex;
-  flex-direction: column;
 }
 
 .avatar {
+  margin: 0 auto;
   width: 5rem;
-  height: 5rem;
-  position: relative;
-  object-fit: cover;
-}
+  > img {
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    object-fit: cover;
+  }
 
-#userSettings {
-  cursor: not-allowed;
-  background-color: #f0f3f5;
-  background-size: cover;
-  display: flex;
-  width: 1.5rem;
-  height: 1.5rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  border-radius: 50%;
-  box-sizing: border-box;
+  #userSettings {
+    cursor: not-allowed;
+    background-color: #f0f3f5;
+    background-size: cover;
+    display: flex;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
 }

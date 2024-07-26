@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   orders-products:
-    container_name: orders-products
+    container-main_name: orders-products
     build: ./ui
     image: orders-products
     environment:

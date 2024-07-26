@@ -29,7 +29,7 @@ const TopMenu: React.FC = () => {
   }, []);
 
   return (
-    <header className='top-menu shadow d-flex align-items-center pt-2 pb-2 pe-5 ps-5 bg-white position-fixed w-100 justify-content-between'>
+    <header className='top-menu shadow d-flex align-items-center pt-2 pb-2 pe-5 ps-5 bg-white w-100 justify-content-between'>
       <div className='ps-5'>
         <img src={shieldIcon} alt='Logo' />
         <span className='text-success fw-bold'>INVENTORY</span>
