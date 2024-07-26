@@ -4,19 +4,18 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
   #root {
-    background-color: blue;
     height: var(--app-height);
     width: 100vw;
     overflow: hidden;
-    .container-main {
+    .wrapper {
       display: grid;
       grid-template-columns: 10rem 1fr;
       overflow: hidden;
       height: calc(var(--app-height) - 4rem);
       .content {
-        background-color: red;
+        background-color: #f0f3f5;
         overflow-y: auto;
-        padding: 1rem;
+        padding: 2rem;
       }
     }
   }

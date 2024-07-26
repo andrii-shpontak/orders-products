@@ -9,7 +9,7 @@ const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <TopMenu />
-      <div className='container-main'>
+      <div className='wrapper'>
         <NavigationMenu />
         <Routes>
           <Route path={AbsoluteRoutes.orders} element={<OrdersPage />} />

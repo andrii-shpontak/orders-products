@@ -11,7 +11,7 @@ const NavigationMenu = () => {
   const location = useLocation();
 
   return (
-    <nav className='shadow pt-5'>
+    <nav className='shadow-lg pt-5'>
       <div className='container-main-fluid d-flex flex-column ps-3 pe-3'>
         <div className='mb-3'>
           <div className='position-relative avatar'>

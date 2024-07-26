@@ -2,11 +2,22 @@ version: '3.8'
 
 services:
   orders-products:
-    container-main_name: orders-products
+    container_name: orders-products
     build: ./ui
     image: orders-products
     environment:
       NODE_ENV: production
     ports:
-      - '3344:3000'
+      - '3000:3000'
     restart: always
+
+  api-orders-products:
+    container_name: api-orders-products
+    build: ./api
+    image: api-orders-products
+    environment:
+      NODE_ENV: production
+    ports:
+      - '4000:4000'
+    restart: always
+
