@@ -1,37 +1,22 @@
 import './index.css';
 
 import { ConfirmPopUp, OrdersList, SelectedOrder } from '../../components';
-import React, { useState } from 'react';
 
-import type { TOrder } from '../../shared/types';
+import React from 'react';
 import { orders } from '../../shared';
 import plusIcon from '../../assets/icons/plus.svg';
+import { useHandlers } from './hooks';
 
 const Orders: React.FC = () => {
-  const [selectedOrder, setSelectedOrder] = useState<TOrder | null>(null);
-  const [showDeletePopup, setShowDeletePopup] = useState<boolean>(false);
-  const [orderToDelete, setOrderToDelete] = useState<TOrder | null>(null);
-
-  const handleOrderClick = (order: TOrder) => {
-    setSelectedOrder(order);
-  };
-
-  const handleDeleteClick = (order: TOrder) => {
-    setOrderToDelete(order);
-    setShowDeletePopup(true);
-  };
-
-  const confirmDeleteOrder = () => {
-    if (orderToDelete) {
-      setShowDeletePopup(false);
-      setOrderToDelete(null);
-    }
-  };
-
-  const closeDeletePopup = () => {
-    setShowDeletePopup(false);
-    setOrderToDelete(null);
-  };
+  const {
+    selectedOrder,
+    showDeletePopup,
+    handleOrderClick,
+    handleDeleteClick,
+    orderToDelete,
+    confirmDeleteOrder,
+    closeDeletePopup,
+  } = useHandlers();
 
   return (
     <div className='orders'>
