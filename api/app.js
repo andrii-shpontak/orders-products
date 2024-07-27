@@ -9,8 +9,12 @@ app.use(cors()); // Allow CORS for all origins
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    // '*' Allow all origins by or set specific allowed origins,
+    // for example - 'http://localhost:3000',
+    // or ['http://localhost:3000', 'http://example.com', 'http://another-allowed-origin.com']
+    origin: '*',
     methods: ['GET', 'POST'],
+    credentials: true,
   },
 });
 
@@ -26,5 +30,5 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
