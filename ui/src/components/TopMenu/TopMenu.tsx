@@ -1,15 +1,15 @@
 import './index.css';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { formatDate, formatTime } from '../../shared';
 
 import io from 'socket.io-client';
-import shieldIcon from '../../assets/images/shieldIcon.svg';
-import timeIcon from '../../assets/images/timeIcon.svg';
+import shieldIcon from '../../assets/icons/shieldIcon.svg';
+import timeIcon from '../../assets/icons/timeIcon.svg';
 
 const socket = io('http://localhost:4000');
 
-const TopMenu: React.FC = () => {
+const TopMenu = () => {
   const [dateTime, setDateTime] = useState(new Date());
   const [activeSessions, setActiveSessions] = useState(0);
 

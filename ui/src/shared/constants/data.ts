@@ -1,4 +1,6 @@
-export const orders = [
+import type { TOrder, TProduct } from '../types';
+
+export const orders: TOrder[] = [
   {
     id: 1,
     title: 'Order 1',
@@ -28,7 +30,7 @@ export const orders = [
   },
 ];
 
-export const products = [
+export const products: TProduct[] = [
   {
     id: 1,
     serialNumber: 1234,

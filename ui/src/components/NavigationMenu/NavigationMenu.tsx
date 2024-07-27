@@ -3,9 +3,9 @@ import './index.css';
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { navbarLinks } from '../../shared';
-import settingsIcon from '../../assets/images/settingsIcon.svg';
+import settingsIcon from '../../assets/icons/settingsIcon.svg';
 import userAvatar from '../../assets/images/userAvatar.jpg';
+import { navbarLinks } from '../../shared';
 
 const NavigationMenu = () => {
   const location = useLocation();

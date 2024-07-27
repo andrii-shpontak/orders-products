@@ -1,0 +1,11 @@
+.order-details {
+  width: 60%;
+  padding: 10px;
+  .products-list {
+    margin-top: 20px;
+    .product-item {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

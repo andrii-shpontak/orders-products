@@ -11,11 +11,14 @@ const AppRouter: React.FC = () => {
       <TopMenu />
       <div className='wrapper'>
         <NavigationMenu />
-        <Routes>
-          <Route path={AbsoluteRoutes.orders} element={<OrdersPage />} />
-          <Route path={AbsoluteRoutes.products} element={<ProductsPage />} />
-          <Route path='*' element={<Navigate to={AbsoluteRoutes.orders} />} />
-        </Routes>
+        <div className='content'>
+          <Routes>
+            {/* 2 routes but 1 page, because I don't understand test task */}
+            <Route path={AbsoluteRoutes.orders} element={<OrdersPage />} />
+            <Route path={AbsoluteRoutes.products} element={<ProductsPage />} />
+            <Route path='*' element={<Navigate to={AbsoluteRoutes.orders} />} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   );
