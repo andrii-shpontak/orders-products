@@ -1,27 +1,31 @@
 import './index.css';
 
 import type { TSelectedOrderProps } from '../../shared/types';
+import closeIcon from '../../assets/icons/closeIcon.svg';
 
-const SelectedOrder = ({ selectedOrder }: TSelectedOrderProps) => {
+const SelectedOrder = ({ selectedOrder, handleClose }: TSelectedOrderProps) => {
   if (!selectedOrder) return <></>;
 
   return (
     <div className='order-details'>
+      <div className='closeIcon' onClick={handleClose}>
+        <img src={closeIcon} alt='Close icon' />
+      </div>
       <h2>{selectedOrder.title}</h2>
-      <p>Date: {selectedOrder.date}</p>
-      <p>Description: {selectedOrder.description}</p>
       <div className='products-list'>
         {selectedOrder.products.map(product => (
           <div key={product.id} className='product-item'>
-            <h4>{product.title}</h4>
-            <p>Type: {product.type}</p>
-            <p>Specification: {product.specification}</p>
+            <h5>{product.title}</h5>
+            <p>{product.type}</p>
             <p>
-              Warranty: {product.guarantee.start} - {product.guarantee.end}
+              {product.guarantee.start}
+              <br />
+              {product.guarantee.end}
             </p>
             <p>
-              Price: {product.price.find(p => p.isDefault)?.value} {product.price.find(p => p.isDefault)?.symbol}
+              {product.price.find(p => p.isDefault)?.value} {product.price.find(p => p.isDefault)?.symbol}
             </p>
+            <h5>{selectedOrder.title}</h5>
           </div>
         ))}
       </div>

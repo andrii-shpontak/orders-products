@@ -1,7 +1,7 @@
 import './index.css';
 
-import { useEffect, useState } from 'react';
 import { formatDate, formatTime } from '../../shared';
+import { useEffect, useState } from 'react';
 
 import io from 'socket.io-client';
 import shieldIcon from '../../assets/icons/shieldIcon.svg';

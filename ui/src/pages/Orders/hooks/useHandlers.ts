@@ -1,5 +1,5 @@
-import type { TOrder } from '../../../shared/types';
 import { useState } from 'react';
+import type { TOrder } from '../../../shared/types';
 
 export function useHandlers() {
   const [selectedOrder, setSelectedOrder] = useState<TOrder | null>(null);
@@ -27,6 +27,10 @@ export function useHandlers() {
     setOrderToDelete(null);
   };
 
+  const handleOrderClose = () => {
+    setSelectedOrder(null);
+  };
+
   return {
     selectedOrder,
     showDeletePopup,
@@ -35,5 +39,6 @@ export function useHandlers() {
     handleDeleteClick,
     confirmDeleteOrder,
     closeDeletePopup,
+    handleOrderClose,
   };
 }

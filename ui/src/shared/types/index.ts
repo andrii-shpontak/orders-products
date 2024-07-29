@@ -44,8 +44,10 @@ export type TOrderListProps = {
   orders?: TOrder[];
   handleOrderClick: (order: TOrder) => void;
   handleDeleteClick: (order: TOrder) => void;
+  selectedOrder: TOrder | null;
 };
 
 export type TSelectedOrderProps = {
   selectedOrder: TOrder | null;
+  handleClose: () => void;
 };

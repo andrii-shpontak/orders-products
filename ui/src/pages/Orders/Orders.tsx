@@ -16,16 +16,23 @@ const Orders: React.FC = () => {
     orderToDelete,
     confirmDeleteOrder,
     closeDeletePopup,
+    handleOrderClose,
   } = useHandlers();
 
   return (
     <div className='orders'>
-      <div className='fs-2 fw-bold ms-2 mt-3 mb-5'>
+      <div className='orders__title'>
         <img src={plusIcon} alt='Plus icon' /> Orders / {orders.length}
       </div>
-      <OrdersList orders={orders} handleOrderClick={handleOrderClick} handleDeleteClick={handleDeleteClick} />
-
-      <SelectedOrder selectedOrder={selectedOrder} />
+      <div className={!!selectedOrder ? 'orders__wrapper' : ''}>
+        <OrdersList
+          orders={orders}
+          handleOrderClick={handleOrderClick}
+          handleDeleteClick={handleDeleteClick}
+          selectedOrder={selectedOrder}
+        />
+        <SelectedOrder selectedOrder={selectedOrder} handleClose={handleOrderClose} />
+      </div>
 
       {showDeletePopup && (
         <ConfirmPopUp
