@@ -16,8 +16,9 @@
   background-color: #fff;
   border: 0.063rem solid #ddd;
   border-radius: 0.25rem;
-  cursor: pointer;
+
   h3 {
+    cursor: pointer;
     margin: 0;
     font-size: 1.125rem;
     text-decoration: underline;
@@ -33,6 +34,9 @@
     border: 0.125rem solid #dcdcdc;
     border-radius: 100%;
     padding: 0.3rem;
+  }
+  img {
+    cursor: pointer;
   }
 }
 .compact {
