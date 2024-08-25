@@ -51,3 +51,7 @@ export type TSelectedOrderProps = {
   selectedOrder: TOrder | null;
   handleClose: () => void;
 };
+
+export type TOrdersSelector = {
+  orders: TOrder[];
+};

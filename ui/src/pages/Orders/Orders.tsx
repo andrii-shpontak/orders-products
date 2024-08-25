@@ -3,11 +3,14 @@ import './index.css';
 import { ConfirmPopUp, OrdersList, SelectedOrder } from '../../components';
 
 import React from 'react';
-import { orders } from '../../shared';
+import { RootState } from '../../redux/store';
 import plusIcon from '../../assets/icons/plus.svg';
 import { useHandlers } from './hooks';
+import { useSelector } from 'react-redux';
 
 const Orders: React.FC = () => {
+  const orders = useSelector((state: RootState) => state.orders.orders);
+  console.log(orders);
   const {
     selectedOrder,
     showDeletePopup,
