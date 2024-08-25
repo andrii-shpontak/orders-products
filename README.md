@@ -2,7 +2,7 @@
 
 This project is created using Create-React-App.
 
-**DEMO LINK:** [http://31.43.46.37:3000](http://31.43.46.37:3000)
+<!-- **DEMO LINK:** [http://31.43.46.37:3000](http://31.43.46.37:3000) -->
 
 ## How to Run Locally
 

@@ -1,31 +1,50 @@
 import './index.css';
 
 import { formatDate, formatTime } from '../../shared';
+import io, { Socket } from 'socket.io-client';
 import { useEffect, useState } from 'react';
 
-import io from 'socket.io-client';
 import shieldIcon from '../../assets/icons/shieldIcon.svg';
 import timeIcon from '../../assets/icons/timeIcon.svg';
 
-const socket = io('http://localhost:4000');
+const apiUrl = 'http://localhost:4000';
 
 const TopMenu = () => {
   const [dateTime, setDateTime] = useState(new Date());
   const [activeSessions, setActiveSessions] = useState(0);
 
+  let socket: Socket | null = null;
+
+  const checkAndConnectSocket = async () => {
+    let isSocketAvailable = false;
+
+    await fetch(apiUrl)
+      .then(() => {
+        isSocketAvailable = true;
+      })
+      .catch(() => {});
+
+    if (isSocketAvailable) {
+      socket = io(apiUrl);
+      socket.on('activeSessions', (count: number) => {
+        setActiveSessions(count);
+      });
+    }
+  };
+
   useEffect(() => {
+    checkAndConnectSocket();
+
     const timer = setInterval(() => {
       setDateTime(new Date());
     }, 1000);
 
-    socket.on('activeSessions', (count: number) => {
-      setActiveSessions(count);
-    });
-
     return () => {
       clearInterval(timer);
-      socket.off('activeSessions');
+      if (socket && socket.connected) socket.off('activeSessions');
     };
+    // only for CDM
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -43,8 +62,17 @@ const TopMenu = () => {
         <div className='mt-4'>{formatTime(dateTime)}</div>
         <div
           className={`text-center text-white shadow ms-4 ps-2 pe-2 bg-${!!activeSessions ? 'success' : 'secondary'} rounded`}>
-          <div>Active sessions</div>
-          <div>{activeSessions}</div>
+          {!!activeSessions ? (
+            <>
+              <div>Active sessions</div>
+              <div>{activeSessions}</div>
+            </>
+          ) : (
+            <>
+              <div>The server</div>
+              <div>is unavailable</div>
+            </>
+          )}
         </div>
       </div>
     </header>

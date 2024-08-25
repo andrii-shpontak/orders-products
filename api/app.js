@@ -30,5 +30,9 @@ io.on('connection', (socket) => {
   });
 });
 
+app.get('/', (req, res) => {
+  res.status(200).send();
+});
+
 const PORT = 4000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
