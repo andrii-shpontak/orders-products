@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 const Orders: React.FC = () => {
   const orders = useSelector((state: RootState) => state.orders.orders);
-  console.log(orders);
+
   const {
     selectedOrder,
     showDeletePopup,

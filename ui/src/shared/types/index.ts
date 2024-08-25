@@ -55,3 +55,15 @@ export type TSelectedOrderProps = {
 export type TOrdersSelector = {
   orders: TOrder[];
 };
+
+export type TTotalPrices = {
+  sum: number;
+  isDefault: boolean;
+  currency: keyof typeof CurrencyEnum;
+};
+
+export type TOrdersListHandlersProps = {
+  orders?: TOrder[];
+  handleDeleteClick: (order: TOrder) => void;
+  handleOrderClick: (order: TOrder) => void;
+};
