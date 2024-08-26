@@ -1,6 +1,6 @@
 import './index.css';
 
-import { formatDate, formatTime } from '../../shared';
+import { formatDate, formatTime, getDayString } from '../../shared';
 import io, { Socket } from 'socket.io-client';
 import { useEffect, useState } from 'react';
 
@@ -55,7 +55,7 @@ const TopMenu = () => {
       </div>
       <div className='d-flex'>
         <div className='d-flex  align-items-center flex-column me-4'>
-          <div>Today</div>
+          <div>{getDayString(dateTime)}</div>
           <div>{formatDate(dateTime)}</div>
         </div>
         <img src={timeIcon} alt='Time Icon' className='mt-4 me-2' />

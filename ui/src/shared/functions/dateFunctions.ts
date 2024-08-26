@@ -11,6 +11,10 @@ export const formatDate = (date: Date) => {
   return date.toLocaleDateString('en-GB', options).toUpperCase();
 };
 
+export const getDayString = (date: Date) => {
+  return date.toLocaleDateString('en-US', { weekday: 'long' });
+};
+
 export const formatTime = (date: Date) => {
   return date.toLocaleTimeString('en-GB', {
     hour: '2-digit',

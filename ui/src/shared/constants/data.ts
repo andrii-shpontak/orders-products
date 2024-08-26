@@ -58,7 +58,7 @@ export const products: TProduct[] = [
     isNew: 1,
     photo: defaultImageUrl,
     title: 'Product 2',
-    type: 'Monitors',
+    type: 'Keyboards',
     specification: 'Specification 1',
     guarantee: {
       start: '2017-06-29 12:09:33',
