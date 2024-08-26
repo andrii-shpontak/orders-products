@@ -1,11 +1,4 @@
 .orders {
-  margin: 1rem;
-  padding: 1rem;
-  .orders__title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 0 1.5rem 1rem;
-  }
   .orders__wrapper {
     display: grid;
     grid-template-columns: 1fr 2fr;

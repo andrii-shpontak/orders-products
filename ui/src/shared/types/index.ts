@@ -67,3 +67,8 @@ export type TOrdersListHandlersProps = {
   handleDeleteClick: (order: TOrder) => void;
   handleOrderClick: (order: TOrder) => void;
 };
+
+export type TProductSListProps = {
+  products: TProduct[];
+  isFullData?: boolean;
+};

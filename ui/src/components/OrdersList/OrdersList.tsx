@@ -38,12 +38,19 @@ const OrdersList = ({ orders, handleOrderClick, handleDeleteClick, selectedOrder
             </div>
             {!selectedOrder && (
               <div>
-                {totalPrices.map((price, i) => (
-                  <span key={i} className={price.isDefault ? '' : 'subtitle'}>
-                    {CurrencyEnum[price.currency]}
-                    {price.sum}
-                  </span>
-                ))}
+                {!!totalPrices ? (
+                  totalPrices?.map((price, i) => (
+                    <span key={i} className={price.isDefault ? '' : 'subtitle'}>
+                      {CurrencyEnum[price.currency]}
+                      {price.sum}
+                    </span>
+                  ))
+                ) : (
+                  <>
+                    <span className='subtitle'>-</span>
+                    <span>-</span>
+                  </>
+                )}
               </div>
             )}
             {!!selectedOrder ? (

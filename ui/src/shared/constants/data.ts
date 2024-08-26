@@ -1,5 +1,7 @@
 import type { TOrder, TProduct } from '../types';
 
+export const defaultImageUrl = 'https://picsum.photos/id/8/200/200';
+
 export const orders: TOrder[] = [
   {
     id: 1,
@@ -7,7 +9,7 @@ export const orders: TOrder[] = [
     date: '2017-06-29 12:09:33',
     description: 'desc',
     get products() {
-      return products;
+      return products.filter(prod => prod.order === this.id);
     },
   },
   {
@@ -16,7 +18,7 @@ export const orders: TOrder[] = [
     date: '2017-06-29 12:09:33',
     description: 'desc',
     get products() {
-      return products;
+      return products.filter(prod => prod.order === this.id);
     },
   },
   {
@@ -25,7 +27,7 @@ export const orders: TOrder[] = [
     date: '2017-06-29 12:09:33',
     description: 'desc',
     get products() {
-      return products;
+      return products.filter(prod => prod.order === this.id);
     },
   },
 ];
@@ -35,7 +37,7 @@ export const products: TProduct[] = [
     id: 1,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
+    photo: defaultImageUrl,
     title: 'Product 1',
     type: 'Monitors',
     specification: 'Specification 1',
@@ -54,8 +56,8 @@ export const products: TProduct[] = [
     id: 2,
     serialNumber: 1234,
     isNew: 1,
-    photo: 'pathToFile.jpg',
-    title: 'Product 1',
+    photo: defaultImageUrl,
+    title: 'Product 2',
     type: 'Monitors',
     specification: 'Specification 1',
     guarantee: {

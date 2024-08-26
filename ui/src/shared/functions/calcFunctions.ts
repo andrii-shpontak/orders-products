@@ -1,7 +1,11 @@
 import type { TProduct, TTotalPrices } from '../types';
 
-export const getOrderPriceSum = (products: TProduct[]): TTotalPrices[] => {
+export const getOrderPriceSum = (products: TProduct[]): TTotalPrices[] | null => {
   const totals: TTotalPrices[] = [];
+
+  if (!products.length) {
+    return null;
+  }
 
   products.forEach(product => {
     product.price.forEach((p, i) => {

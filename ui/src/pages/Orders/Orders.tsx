@@ -1,10 +1,9 @@
 import './index.css';
 
-import { ConfirmPopUp, OrdersList, SelectedOrder } from '../../components';
+import { ConfirmPopUp, OrdersList, PageTitle, SelectedOrder } from '../../components';
 
 import React from 'react';
 import { RootState } from '../../redux/store';
-import plusIcon from '../../assets/icons/plus.svg';
 import { useHandlers } from './hooks';
 import { useSelector } from 'react-redux';
 
@@ -24,9 +23,7 @@ const Orders: React.FC = () => {
 
   return (
     <div className='orders'>
-      <div className='orders__title'>
-        <img src={plusIcon} alt='Plus icon' /> Orders / {orders.length}
-      </div>
+      <PageTitle title='Orders' count={orders.length} />
       <div className={!!selectedOrder ? 'orders__wrapper' : ''}>
         <OrdersList
           orders={orders}
