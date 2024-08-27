@@ -11,8 +11,9 @@ const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   reducers: {
-    addOrder: (state, action: PayloadAction<TOrder>) => {
-      state.orders.push(action.payload);
+    addOrder: (state, action: PayloadAction<Omit<TOrder, 'id' | 'products'>>) => {
+      const newId = state.orders.length > 0 ? Math.max(...state.orders.map(order => order.id)) + 1 : 1;
+      state.orders.push({ ...action.payload, id: newId, products: [] });
     },
     updateOrder: (state, action: PayloadAction<TOrder>) => {
       const index = state.orders.findIndex(order => order.id === action.payload.id);

@@ -73,3 +73,22 @@ export type TProductSListProps = {
   products: TProduct[];
   isFullData?: boolean;
 };
+
+export type TDateInputProps = {
+  value: Date | null;
+  onChange: (date: Date | null) => void;
+  minDate?: Date;
+  maxDate?: Date;
+};
+
+export type TCreateOrderFormValues = {
+  title: string;
+  date: Date | null;
+  description: string;
+};
+
+export type TPageTitleProps = {
+  title: string;
+  count: number;
+  createLink?: string;
+};
