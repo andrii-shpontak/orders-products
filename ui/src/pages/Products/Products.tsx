@@ -1,6 +1,7 @@
 import { PageTitle, ProductsList, TypeSelector } from '../../components';
 import { useMemo, useState } from 'react';
 
+import { AbsoluteRoutes } from '../../shared';
 import { RootState } from '../../redux/store';
 import type { TProduct } from '../../shared/types';
 import { useSelector } from 'react-redux';
@@ -31,7 +32,7 @@ const Products = () => {
 
   return (
     <div className='productsPage'>
-      <PageTitle title='Products' count={products.length} />
+      <PageTitle title='Products' count={products.length} createLink={AbsoluteRoutes.createProduct} />
       <TypeSelector value={selectedType} setValue={setSelectedType} options={productTypes} />
       <ProductsList products={sortedProducts} isFullData={true} />
     </div>

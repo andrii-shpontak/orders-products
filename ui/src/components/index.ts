@@ -8,3 +8,4 @@ export { default as ProductsList } from './ProductsList/ProductsList';
 export { default as TypeSelector } from './TypeSelector/TypeSelector';
 export { default as OrderForm } from './OrderForm/OrderForm';
 export { default as CustomDateInput } from './CustomDateInput/CustomDateInput';
+export { default as ProductForm } from './ProductForm/ProductForm';

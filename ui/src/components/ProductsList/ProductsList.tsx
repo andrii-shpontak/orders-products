@@ -1,9 +1,9 @@
 import './index.css';
 
-import { CurrencyEnum } from '../../shared/enums/Currency';
+import { currency, getDualFormatDate } from '../../shared';
+
 import type { TProductSListProps } from '../../shared/types';
 import deleteIcon from '../../assets/icons/trashIcon.svg';
-import { getDualFormatDate } from '../../shared';
 import { useHandlers } from './hooks';
 
 const ProductsList = ({ products, isFullData }: TProductSListProps) => {
@@ -13,11 +13,11 @@ const ProductsList = ({ products, isFullData }: TProductSListProps) => {
 
   return (
     <div className='products-list'>
-      {products.map(product => {
+      {products.map((product, i) => {
         const [startDateEur] = getDualFormatDate(product.guarantee.start);
         const [endDateEur] = getDualFormatDate(product.guarantee.end);
         return (
-          <div key={product.id} className={isFullData ? 'product-item full' : 'product-item'}>
+          <div key={i} className={isFullData ? 'product-item full' : 'product-item'}>
             <div className='ball' />
             <img src={product.photo} alt='productPhoto' />
             <div>
@@ -34,31 +34,24 @@ const ProductsList = ({ products, isFullData }: TProductSListProps) => {
                 <div className='price'>
                   {product.price.map((price, i) => (
                     <span key={i} className={price.isDefault ? '' : 'subtitle'}>
-                      {CurrencyEnum[price.symbol]}
+                      {currency[price.symbol]}
                       {price.value}
                     </span>
                   ))}
                 </div>
                 <h5>{product.order}</h5>
+                <img
+                  src={deleteIcon}
+                  alt='Delete icon'
+                  data-product-id={product.id}
+                  className='deleteIcon'
+                  onClick={deleteProduct}
+                />
               </>
             )}
-            <img
-              src={deleteIcon}
-              alt='Delete icon'
-              data-product-id={product.id}
-              className='deleteIcon'
-              onClick={deleteProduct}
-            />
           </div>
         );
       })}
-      {/* {!!productToDelete && (
-        <ConfirmPopUp
-          message={`Are you shure you want do delete ${productToDelete?.title}?`}
-          onAccept={confirmProductDelete}
-          onDecline={closeDeletePopup}
-        />
-      )} */}
     </div>
   );
 };

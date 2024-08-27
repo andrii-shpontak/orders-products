@@ -1,10 +1,10 @@
 import './index.css';
 
-import { CurrencyEnum } from '../../shared/enums/Currency';
+import { currency, getDualFormatDate } from '../../shared';
+
 import type { TOrderListProps } from '../../shared/types';
 import arrowIcon from '../../assets/icons/arrowRight.svg';
 import deleteIcon from '../../assets/icons/trashIcon.svg';
-import { getDualFormatDate } from '../../shared';
 import { getOrderPriceSum } from '../../shared/functions/calcFunctions';
 import listIcon from '../../assets/icons/listIcon.svg';
 import { useHandlers } from './hooks';
@@ -41,7 +41,7 @@ const OrdersList = ({ orders, handleOrderClick, handleDeleteClick, selectedOrder
                 {!!totalPrices ? (
                   totalPrices?.map((price, i) => (
                     <span key={i} className={price.isDefault ? '' : 'subtitle'}>
-                      {CurrencyEnum[price.currency]}
+                      {currency[price.currency]}
                       {price.sum}
                     </span>
                   ))

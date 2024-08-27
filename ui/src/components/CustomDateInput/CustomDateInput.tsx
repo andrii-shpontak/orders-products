@@ -6,7 +6,7 @@ import type { TDateInputProps } from '../../shared/types';
 import { getDualFormatDate } from '../../shared';
 import { useState } from 'react';
 
-const CustomDateInput = ({ value, onChange, minDate, maxDate }: TDateInputProps) => {
+const CustomDateInput = ({ value, onChange, minDate, maxDate, placeholder }: TDateInputProps) => {
   const [isOpen, setOpen] = useState(false);
 
   const onInputClick = () => {
@@ -35,7 +35,13 @@ const CustomDateInput = ({ value, onChange, minDate, maxDate }: TDateInputProps)
           />
         </div>
       ) : (
-        <input value={stringValue} readOnly onClick={onInputClick} className='form-control' />
+        <input
+          value={stringValue}
+          readOnly
+          onClick={onInputClick}
+          className='form-control'
+          placeholder={placeholder || 'Choose the date'}
+        />
       )}
     </>
   );

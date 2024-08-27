@@ -24,11 +24,14 @@ const ordersSlice = createSlice({
     deleteOrder: (state, action: PayloadAction<number>) => {
       state.orders = state.orders.filter(order => order.id !== action.payload);
     },
-    addProductToOrder: (state, action: PayloadAction<{ orderId: number; product: TProduct }>) => {
+    addProductToOrder: (state, action: PayloadAction<{ orderId: number; product: Omit<TProduct, 'id'> }>) => {
       const { orderId, product } = action.payload;
       const order = state.orders.find(order => order.id === orderId);
       if (order) {
-        order.products.push(product);
+        const newId = !!order.products.length ? Math.max(...order.products.map(prod => prod.id)) + 1 : 1;
+        // Using array spread to create a new array ensures immutability,
+        // allowing Redux to detect state changes and trigger re-renders.
+        order.products = [...order.products, { ...product, id: newId }];
       }
     },
     removeProductFromOrder: (state, action: PayloadAction<{ orderId: number; productId: number }>) => {

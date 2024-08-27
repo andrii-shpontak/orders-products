@@ -9,16 +9,12 @@ const CreateOrder = () => {
   const { handleSubmit } = useHandlers();
 
   return (
-    <>
-      <Formik<TCreateOrderFormValues>
-        initialValues={initialOrderFormValue}
-        validationSchema={orderValidationSchema}
-        validateOnChange={false}
-        validateOnBlur={false}
-        onSubmit={handleSubmit}>
-        <OrderForm />
-      </Formik>
-    </>
+    <Formik<TCreateOrderFormValues>
+      initialValues={initialOrderFormValue}
+      validationSchema={orderValidationSchema}
+      onSubmit={handleSubmit}>
+      <OrderForm />
+    </Formik>
   );
 };
 

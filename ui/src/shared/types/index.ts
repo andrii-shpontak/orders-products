@@ -1,5 +1,3 @@
-import { CurrencyEnum } from '../enums/Currency';
-
 export type TLinksData = {
   title: string;
   link?: string;
@@ -19,7 +17,7 @@ export type TProduct = {
   };
   price: {
     value: number;
-    symbol: keyof typeof CurrencyEnum;
+    symbol: TCurrency;
     isDefault: number;
   }[];
   order: number;
@@ -60,7 +58,7 @@ export type TOrdersSelector = {
 export type TTotalPrices = {
   sum: number;
   isDefault: boolean;
-  currency: keyof typeof CurrencyEnum;
+  currency: TCurrency;
 };
 
 export type TOrdersListHandlersProps = {
@@ -79,6 +77,8 @@ export type TDateInputProps = {
   onChange: (date: Date | null) => void;
   minDate?: Date;
   maxDate?: Date;
+  id: string;
+  placeholder?: string;
 };
 
 export type TCreateOrderFormValues = {
@@ -91,4 +91,26 @@ export type TPageTitleProps = {
   title: string;
   count: number;
   createLink?: string;
+};
+
+export type TCurrency = 'USD' | 'UAH';
+
+export type TProductForm = {
+  serialNumber: number;
+  isNew: string;
+  photo: string;
+  title: string;
+  type: string;
+  specification: string;
+  guarantee: {
+    start: Date | null;
+    end: Date | null;
+  };
+  price: {
+    value: number;
+    symbol: TCurrency;
+    isDefault: number;
+  }[];
+  order: string;
+  date: string;
 };
