@@ -1,5 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import { NavigationMenu, TopMenu } from './components';
+import { ConfirmPopUp, NavigationMenu, TopMenu } from './components';
 import { OrdersPage, ProductsPage } from './pages';
 
 import { AbsoluteRoutes } from './shared';
@@ -9,6 +9,7 @@ const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <TopMenu />
+      <ConfirmPopUp />
       <div className='wrapper'>
         <NavigationMenu />
         <div className='content'>

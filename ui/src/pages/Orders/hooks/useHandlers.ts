@@ -1,12 +1,11 @@
 import type { TOrder } from '../../../shared/types';
 import { deleteOrder } from '../../../redux/slices/ordersSlice';
+import { setPopupValue } from '../../../redux/slices';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 export function useHandlers() {
   const [selectedOrder, setSelectedOrder] = useState<TOrder | null>(null);
-  const [showDeletePopup, setShowDeletePopup] = useState<boolean>(false);
-  const [orderToDelete, setOrderToDelete] = useState<TOrder | null>(null);
 
   const dispatch = useDispatch();
 
@@ -15,21 +14,14 @@ export function useHandlers() {
   };
 
   const handleDeleteClick = (order: TOrder) => {
-    setOrderToDelete(order);
-    setShowDeletePopup(true);
-  };
-
-  const confirmDeleteOrder = () => {
-    if (orderToDelete) {
-      dispatch(deleteOrder(orderToDelete.id));
-      setShowDeletePopup(false);
-      setOrderToDelete(null);
-    }
-  };
-
-  const closeDeletePopup = () => {
-    setShowDeletePopup(false);
-    setOrderToDelete(null);
+    dispatch(
+      setPopupValue({
+        isOpen: true,
+        message: `Are you sure you want do delete this order "${order.title}"?`,
+        onAccept: () => dispatch(deleteOrder(order.id)),
+        onDecline: () => {},
+      }),
+    );
   };
 
   const handleOrderClose = () => {
@@ -38,12 +30,8 @@ export function useHandlers() {
 
   return {
     selectedOrder,
-    showDeletePopup,
-    orderToDelete,
     handleOrderClick,
     handleDeleteClick,
-    confirmDeleteOrder,
-    closeDeletePopup,
     handleOrderClose,
   };
 }

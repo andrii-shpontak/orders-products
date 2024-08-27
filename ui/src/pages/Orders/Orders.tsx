@@ -1,6 +1,6 @@
 import './index.css';
 
-import { ConfirmPopUp, OrdersList, PageTitle, SelectedOrder } from '../../components';
+import { OrdersList, PageTitle, SelectedOrder } from '../../components';
 
 import React from 'react';
 import { RootState } from '../../redux/store';
@@ -9,17 +9,8 @@ import { useSelector } from 'react-redux';
 
 const Orders: React.FC = () => {
   const orders = useSelector((state: RootState) => state.orders.orders);
-
-  const {
-    selectedOrder,
-    showDeletePopup,
-    handleOrderClick,
-    handleDeleteClick,
-    orderToDelete,
-    confirmDeleteOrder,
-    closeDeletePopup,
-    handleOrderClose,
-  } = useHandlers();
+  console.log(orders);
+  const { selectedOrder, handleOrderClick, handleDeleteClick, handleOrderClose } = useHandlers();
 
   return (
     <div className='orders'>
@@ -33,14 +24,6 @@ const Orders: React.FC = () => {
         />
         <SelectedOrder selectedOrder={selectedOrder} handleClose={handleOrderClose} />
       </div>
-
-      {showDeletePopup && (
-        <ConfirmPopUp
-          message={`Are you shure you want do delete ${orderToDelete?.title}?`}
-          onAccept={confirmDeleteOrder}
-          onDecline={closeDeletePopup}
-        />
-      )}
     </div>
   );
 };

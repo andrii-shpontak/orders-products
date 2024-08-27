@@ -1,18 +1,39 @@
 import './index.css';
 
-import type { TConfirmPopUpProps } from '../../shared/types';
+import { useDispatch, useSelector } from 'react-redux';
 
-const ConfirmPopUp = ({ message, onAccept, onDecline }: TConfirmPopUpProps) => {
+import { RootState } from '../../redux/store';
+import type { TConfirmPopUpProps } from '../../shared/types';
+import { closePopup } from '../../redux/slices';
+
+const ConfirmPopUp = () => {
+  const popupState = useSelector((state: RootState) => state.popup as TConfirmPopUpProps);
+  const dispatch = useDispatch();
+
+  const handleAccept = () => {
+    popupState?.onAccept();
+    dispatch(closePopup());
+  };
+
+  const handleDecline = () => {
+    popupState?.onDecline();
+    dispatch(closePopup());
+  };
+
   return (
     <>
-      <div className='overlay' onClick={onDecline} />
-      <div className='popup'>
-        <p>{message}</p>
-        <div>
-          <button onClick={onDecline}>Cancel</button>
-          <button onClick={onAccept}>Delete</button>
-        </div>
-      </div>
+      {popupState.isOpen && (
+        <>
+          <div className='overlay' onClick={handleDecline} />
+          <div className='popup'>
+            <p>{popupState.message}</p>
+            <div>
+              <button onClick={handleDecline}>Cancel</button>
+              <button onClick={handleAccept}>Delete</button>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };

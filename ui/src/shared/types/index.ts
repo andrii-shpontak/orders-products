@@ -35,6 +35,7 @@ export type TOrder = {
 };
 
 export type TConfirmPopUpProps = {
+  isOpen: boolean;
   message: string;
   onAccept: () => void;
   onDecline: () => void;
