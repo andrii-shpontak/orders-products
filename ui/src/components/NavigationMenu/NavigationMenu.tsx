@@ -1,32 +1,31 @@
 import './index.css';
 
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { NavLink, useLocation } from 'react-router-dom';
 
+import { navbarLinks } from '../../shared';
 import settingsIcon from '../../assets/icons/settingsIcon.svg';
 import userAvatar from '../../assets/images/userAvatar.jpg';
-import { navbarLinks } from '../../shared';
 
 const NavigationMenu = () => {
   const location = useLocation();
 
   return (
-    <nav className='shadow-lg pt-5'>
-      <div className='container-main-fluid d-flex flex-column ps-3 pe-3'>
-        <div className='mb-3'>
-          <div className='position-relative avatar'>
-            <img src={userAvatar} alt='User Avatar' className='rounded-circle shadow' />
-            <span id='userSettings'>
+    <nav className='navigation-menu'>
+      <div className='navigation-menu__container'>
+        <div className='navigation-menu__avatar-container'>
+          <div className='navigation-menu__avatar'>
+            <img src={userAvatar} alt='User Avatar' className='navigation-menu__avatar-image' />
+            <span className='navigation-menu__settings'>
               <img src={settingsIcon} alt='settings icon' />
             </span>
           </div>
         </div>
-        <div>
-          <ul className='navbar-nav flex-column'>
+        <div className='navigation-menu__links'>
+          <ul className='navigation-menu__list'>
             {navbarLinks.map((item, i) => (
-              <li key={i} className='nav-item'>
+              <li key={i} className='navigation-menu__list-item'>
                 <NavLink
-                  className={`nav-link fs-5 text-center  ${!!item.link ? (location.pathname === item.link ? 'text-decoration-underline link-underline-success fs-4' : '') : 'disabled text-secondary'}`}
+                  className={`navigation-menu__link ${item.link ? (location.pathname === item.link ? 'navigation-menu__link--active' : '') : 'navigation-menu__link--disabled'}`}
                   to={item.link || '#'}>
                   {item.title}
                 </NavLink>

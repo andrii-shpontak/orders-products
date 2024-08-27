@@ -13,17 +13,18 @@ const CustomDateInput = ({ value, onChange, minDate, maxDate, placeholder }: TDa
     setOpen(true);
   };
 
-  const handleDateChange = (value: Date | null) => {
-    onChange(value);
+  const handleDateChange = (date: Date | null) => {
+    onChange(date);
     setOpen(false);
   };
 
-  const stringValue = !!value ? getDualFormatDate(value.toDateString())[0] : '';
+  const stringValue = value ? getDualFormatDate(value.toDateString())[0] : '';
+
   return (
     <>
       {isOpen ? (
-        <div className='datePicker'>
-          <h3>Choose the order date</h3>
+        <div className='custom-date-input__datepicker'>
+          <h3 className='custom-date-input__title'>Choose the date</h3>
           <DatePicker
             selected={value}
             onChange={handleDateChange}
@@ -32,16 +33,19 @@ const CustomDateInput = ({ value, onChange, minDate, maxDate, placeholder }: TDa
             dateFormat='yyyy/MM/dd'
             minDate={minDate}
             maxDate={maxDate}
+            className='custom-date-input__datepicker-picker'
           />
         </div>
       ) : (
-        <input
-          value={stringValue}
-          readOnly
-          onClick={onInputClick}
-          className='form-control'
-          placeholder={placeholder || 'Choose the date'}
-        />
+        <div className='custom-date-input__container'>
+          <input
+            value={stringValue}
+            readOnly
+            onClick={onInputClick}
+            className='custom-date-input__input'
+            placeholder={placeholder || 'Choose the date'}
+          />
+        </div>
       )}
     </>
   );

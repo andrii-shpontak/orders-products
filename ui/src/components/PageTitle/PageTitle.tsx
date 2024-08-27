@@ -7,16 +7,18 @@ import { useNavigate } from 'react-router-dom';
 const PageTitle = ({ title, count, createLink }: TPageTitleProps) => {
   const navigate = useNavigate();
 
-  const onAddCLick = () => {
-    if (!!createLink) {
+  const onAddClick = () => {
+    if (createLink) {
       navigate(createLink);
     }
   };
 
   return (
-    <div className='pageTitle'>
-      <img src={plusIcon} alt='Plus icon' onClick={onAddCLick} />
-      {title} / {count}
+    <div className='page-title'>
+      <img src={plusIcon} alt='Add icon' className='page-title__icon' onClick={onAddClick} />
+      <span className='page-title__text'>
+        {title} / {count}
+      </span>
     </div>
   );
 };

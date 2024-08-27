@@ -48,21 +48,21 @@ const TopMenu = () => {
   }, []);
 
   return (
-    <header className='top-menu shadow d-flex align-items-center pt-2 pb-2 pe-5 ps-5 bg-white w-100 justify-content-between'>
-      <div className='ps-5'>
-        <img src={shieldIcon} alt='Logo' />
-        <span className='text-success fw-bold'>INVENTORY</span>
+    <header className='top-menu'>
+      <div className='top-menu__logo'>
+        <img src={shieldIcon} alt='Logo' className='top-menu__logo-icon' />
+        <span className='top-menu__logo-text'>INVENTORY</span>
       </div>
-      <div className='d-flex'>
-        <div className='d-flex  align-items-center flex-column me-4'>
+      <div className='top-menu__info'>
+        <div className='top-menu__date-time'>
           <div>{getDayString(dateTime)}</div>
           <div>{formatDate(dateTime)}</div>
         </div>
-        <img src={timeIcon} alt='Time Icon' className='mt-4 me-2' />
-        <div className='mt-4'>{formatTime(dateTime)}</div>
+        <img src={timeIcon} alt='Time Icon' className='top-menu__time-icon' />
+        <div className='top-menu__time'>{formatTime(dateTime)}</div>
         <div
-          className={`text-center text-white shadow ms-4 ps-2 pe-2 bg-${!!activeSessions ? 'success' : 'secondary'} rounded`}>
-          {!!activeSessions ? (
+          className={`top-menu__session-info ${activeSessions ? 'top-menu__session-info--active' : 'top-menu__session-info--inactive'}`}>
+          {activeSessions ? (
             <>
               <div>Active sessions</div>
               <div>{activeSessions}</div>

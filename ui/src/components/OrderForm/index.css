@@ -1,36 +1,71 @@
-.orderForm {
+.order-form {
   display: block;
   margin: 1rem auto;
   max-width: 20rem;
-  .form-group {
-    margin: 1rem 0;
-    .error-message {
-      color: #ff1500;
-    }
-  }
-  .actionButtons {
-    display: flex;
-    justify-content: space-around;
-    button {
-      padding: 0.25rem 1rem;
-      border-radius: 1rem;
-      border: none;
-      background-color: transparent;
-      font-weight: 600;
-      text-transform: uppercase;
-      background-color: #ff1500;
-      color: #fff;
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-      &[type='submit'] {
-        background-color: #cddc39;
-      }
-      &:hover {
-        color: inherit;
-      }
-    }
-  }
 }
 
-.orderFormTitle {
+.order-form__title {
   text-decoration: underline;
+}
+
+.order-form__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-form__group {
+  margin: 1rem 0;
+}
+
+.order-form__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.order-form__input {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.order-form__error-message {
+  color: #ff1500;
+  margin-top: 0.25rem;
+}
+
+.order-form__actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-form__button {
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: #ff1500;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.order-form__button:hover {
+  background-color: #e03e2e;
+}
+
+.order-form__button--submit {
+  background-color: #cddc39;
+  color: #333;
+}
+
+.order-form__button--submit:hover {
+  background-color: #aabf2e;
+  color: #000;
 }

@@ -17,34 +17,36 @@ const ProductsList = ({ products, isFullData }: TProductSListProps) => {
         const [startDateEur] = getDualFormatDate(product.guarantee.start);
         const [endDateEur] = getDualFormatDate(product.guarantee.end);
         return (
-          <div key={i} className={isFullData ? 'product-item full' : 'product-item'}>
-            <div className='ball' />
-            <img src={product.photo} alt='productPhoto' />
-            <div>
-              <h5>{product.title}</h5>
-              <span className='subtitle'>{product.type}</span>
+          <div key={i} className={`products-list__item ${isFullData ? 'products-list__item--full' : ''}`}>
+            <div className='products-list__item-ball' />
+            <img src={product.photo} alt='Product' className='products-list__item-photo' />
+            <div className='products-list__item-details'>
+              <h5 className='products-list__item-title'>{product.title}</h5>
+              <span className='products-list__item-subtitle'>{product.type}</span>
             </div>
-            <div>
+            <div className='products-list__item-dates'>
               From: {startDateEur}
               <br />
-              To :{endDateEur}
+              To: {endDateEur}
             </div>
             {isFullData && (
               <>
-                <div className='price'>
+                <div className='products-list__item-price'>
                   {product.price.map((price, i) => (
-                    <span key={i} className={price.isDefault ? '' : 'subtitle'}>
+                    <span
+                      key={i}
+                      className={`products-list__item-price-value ${price.isDefault ? '' : 'products-list__item-price-value--subtitle'}`}>
                       {currency[price.symbol]}
                       {price.value}
                     </span>
                   ))}
                 </div>
-                <h5>{product.order}</h5>
+                <h5 className='products-list__item-order'>{product.order}</h5>
                 <img
                   src={deleteIcon}
                   alt='Delete icon'
                   data-product-id={product.id}
-                  className='deleteIcon'
+                  className='products-list__item-delete-icon'
                   onClick={deleteProduct}
                 />
               </>

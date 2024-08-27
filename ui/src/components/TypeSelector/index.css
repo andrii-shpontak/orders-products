@@ -1,13 +1,15 @@
-.typeSelector {
+.type-selector {
   display: flex;
   gap: 1rem;
-  label {
-    font-size: 1.25rem;
-  }
-  select {
-    padding: 0.25rem 0.5rem;
-    outline: none;
-    border-color: #ddd;
-    background-color: #fff;
-  }
+}
+
+.type-selector__label {
+  font-size: 1.25rem;
+}
+
+.type-selector__select {
+  padding: 0.25rem 0.5rem;
+  outline: none;
+  border-color: #ddd;
+  background-color: #fff;
 }

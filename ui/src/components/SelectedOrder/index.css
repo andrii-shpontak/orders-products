@@ -1,4 +1,4 @@
-.order-details {
+.selected-order {
   display: inline-block;
   width: 70%;
   position: relative;
@@ -9,25 +9,30 @@
   border: 0.063rem solid #ddd;
   border-radius: 0.25rem;
   margin: 0.625rem;
-  .closeIcon {
-    cursor: pointer;
-    position: absolute;
-    top: -1.25rem;
-    right: -1.25rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: #fff;
-    border-radius: 100%;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      height: 65%;
-      width: 65%;
-    }
-  }
-  h2 {
-    padding: 1rem;
-  }
+}
+
+.selected-order__close-button {
+  cursor: pointer;
+  position: absolute;
+  top: -1.25rem;
+  right: -1.25rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0;
+}
+
+.selected-order__close-icon {
+  height: 65%;
+  width: 65%;
+}
+
+.selected-order__title {
+  padding: 1rem;
 }

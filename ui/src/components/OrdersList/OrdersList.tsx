@@ -12,7 +12,7 @@ import { useHandlers } from './hooks';
 const OrdersList = ({ orders, handleOrderClick, handleDeleteClick, selectedOrder }: TOrderListProps) => {
   const { deleteOrder, onOrderClick } = useHandlers({ orders, handleDeleteClick, handleOrderClick });
 
-  if (!orders) return <></>;
+  if (!orders) return null;
 
   return (
     <div className='orders-list'>
@@ -21,33 +21,37 @@ const OrdersList = ({ orders, handleOrderClick, handleDeleteClick, selectedOrder
         const totalPrices = getOrderPriceSum(order.products);
 
         return (
-          <div key={order.id} className={`order-item ${!!selectedOrder ? 'compact' : ''}`}>
+          <div key={order.id} className={`orders-list__item ${selectedOrder ? 'orders-list__item--compact' : ''}`}>
             {!selectedOrder && (
-              <h3 data-order-id={order.id} onClick={onOrderClick}>
+              <h3 className='orders-list__title' data-order-id={order.id} onClick={onOrderClick}>
                 {order.title}
               </h3>
             )}
-            <img src={listIcon} alt='List icon' className='listIcon' />
-            <div>
-              <span>{order.products.length}</span>
-              <span className='subtitle'>Products</span>
+            <img src={listIcon} alt='List icon' className='orders-list__list-icon' />
+            <div className='orders-list__products-info'>
+              <span className='orders-list__product-count'>{order.products.length}</span>
+              <span className='orders-list__subtitle'>Products</span>
             </div>
-            <div>
-              <span className='subtitle'>{usDate}</span>
+            <div className='orders-list__date-info'>
+              <span className='orders-list__subtitle'>{usDate}</span>
               <span>{eurDate}</span>
             </div>
             {!selectedOrder && (
-              <div>
+              <div className='orders-list__price-info'>
                 {!!totalPrices ? (
-                  totalPrices?.map((price, i) => (
-                    <span key={i} className={price.isDefault ? '' : 'subtitle'}>
+                  totalPrices.map((price, i) => (
+                    <span
+                      key={i}
+                      className={
+                        price.isDefault ? 'orders-list__price' : 'orders-list__price orders-list__price--default'
+                      }>
                       {currency[price.currency]}
                       {price.sum}
                     </span>
                   ))
                 ) : (
                   <>
-                    <span className='subtitle'>-</span>
+                    <span className='orders-list__subtitle'>-</span>
                     <span>-</span>
                   </>
                 )}
@@ -55,12 +59,18 @@ const OrdersList = ({ orders, handleOrderClick, handleDeleteClick, selectedOrder
             )}
             {!!selectedOrder ? (
               selectedOrder.id === order.id && (
-                <div className='arrowRight'>
+                <div className='orders-list__arrow'>
                   <img src={arrowIcon} alt='Arrow right' />
                 </div>
               )
             ) : (
-              <img src={deleteIcon} alt='Delete icon' data-order-id={order.id} onClick={deleteOrder} />
+              <img
+                src={deleteIcon}
+                alt='Delete icon'
+                className='orders-list__delete-icon'
+                data-order-id={order.id}
+                onClick={deleteOrder}
+              />
             )}
           </div>
         );

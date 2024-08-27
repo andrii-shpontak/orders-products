@@ -1,11 +1,12 @@
 .orders {
   display: flex;
-  .orders__wrapper {
-    width: 100%;
-    transition: width 0.3s ease;
+}
 
-    &.expanded {
-      width: 30%;
-    }
-  }
+.orders__wrapper {
+  width: 100%;
+  transition: width 0.3s ease;
+}
+
+.orders__wrapper--expanded {
+  width: 30%;
 }

@@ -17,11 +17,11 @@ const SelectedOrder = ({ selectedOrder, handleClose }: TSelectedOrderProps) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.5 }}
         transition={{ duration: 0.3 }}
-        className='order-details'>
-        <div className='closeIcon' onClick={handleClose}>
-          <img src={closeIcon} alt='Close icon' />
-        </div>
-        <h2>{selectedOrder.title}</h2>
+        className='selected-order'>
+        <button className='selected-order__close-button' onClick={handleClose}>
+          <img src={closeIcon} alt='Close icon' className='selected-order__close-icon' />
+        </button>
+        <h2 className='selected-order__title'>{selectedOrder.title}</h2>
         <ProductsList products={selectedOrder.products} />
       </motion.div>
     </AnimatePresence>

@@ -16,7 +16,7 @@ const Orders: React.FC = () => {
     <>
       <PageTitle title='Orders' count={orders.length} createLink={AbsoluteRoutes.createOrder} />
       <div className='orders'>
-        <div className={!!selectedOrder ? 'orders__wrapper expanded' : 'orders__wrapper'}>
+        <div className={`orders__wrapper ${selectedOrder ? 'orders__wrapper--expanded' : ''}`}>
           <OrdersList
             orders={orders}
             handleOrderClick={handleOrderClick}

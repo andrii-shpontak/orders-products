@@ -19,39 +19,47 @@ const OrderForm = () => {
   };
 
   return (
-    <>
-      <h2 className='orderFormTitle'>Create new order</h2>
-      <Form className='orderForm'>
-        <div className='form-group'>
-          <label htmlFor='title'>Order title</label>
-          <Field id='title' name='title' className='form-control' />
-          <ErrorMessage name='title' component='div' className='error-message' />
+    <div className='order-form'>
+      <h2 className='order-form__title'>Create new order</h2>
+      <Form className='order-form__form'>
+        <div className='order-form__group'>
+          <label htmlFor='title' className='order-form__label'>
+            Order title
+          </label>
+          <Field id='title' name='title' className='order-form__input' />
+          <ErrorMessage name='title' component='div' className='order-form__error-message' />
         </div>
-        <div className='form-group'>
-          <label htmlFor='date'>Order date</label>
+        <div className='order-form__group'>
+          <label htmlFor='date' className='order-form__label'>
+            Order date
+          </label>
           <Field
             component={CustomDateInput}
             id='date'
             name='date'
-            className='form-control'
+            className='order-form__input'
             value={values.date}
             onChange={onDateChange}
           />
-          <ErrorMessage name='date' component='div' className='error-message' />
+          <ErrorMessage name='date' component='div' className='order-form__error-message' />
         </div>
-        <div className='form-group'>
-          <label htmlFor='description'>Order description</label>
-          <Field id='description' name='description' className='form-control' />
-          <ErrorMessage name='description' component='div' className='error-message' />
+        <div className='order-form__group'>
+          <label htmlFor='description' className='order-form__label'>
+            Order description
+          </label>
+          <Field id='description' name='description' className='order-form__input' />
+          <ErrorMessage name='description' component='div' className='order-form__error-message' />
         </div>
-        <div className='actionButtons'>
-          <button type='button' onClick={handleGoBack}>
+        <div className='order-form__actions'>
+          <button type='button' className='order-form__button' onClick={handleGoBack}>
             Cancel
           </button>
-          <button type='submit'>Submit</button>
+          <button type='submit' className='order-form__button order-form__button--submit'>
+            Submit
+          </button>
         </div>
       </Form>
-    </>
+    </div>
   );
 };
 

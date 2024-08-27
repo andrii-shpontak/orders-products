@@ -23,16 +23,20 @@ const ConfirmPopUp = () => {
   return (
     <>
       {popupState.isOpen && (
-        <>
-          <div className='overlay' onClick={handleDecline} />
-          <div className='popup'>
-            <p>{popupState.message}</p>
-            <div>
-              <button onClick={handleDecline}>Cancel</button>
-              <button onClick={handleAccept}>Delete</button>
+        <div className='popup'>
+          <div className='popup__overlay' onClick={handleDecline} />
+          <div className='popup__container'>
+            <p className='popup__message'>{popupState.message}</p>
+            <div className='popup__actions'>
+              <button className='popup__button popup__button--cancel' onClick={handleDecline}>
+                Cancel
+              </button>
+              <button className='popup__button popup__button--accept' onClick={handleAccept}>
+                Delete
+              </button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   );
