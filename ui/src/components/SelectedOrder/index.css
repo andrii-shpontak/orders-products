@@ -1,4 +1,6 @@
 .order-details {
+  display: inline-block;
+  width: 70%;
   position: relative;
   color: #2c3c44;
   align-items: center;

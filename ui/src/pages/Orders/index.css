@@ -1,6 +1,11 @@
 .orders {
+  display: flex;
   .orders__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
+    width: 100%;
+    transition: width 0.3s ease;
+
+    &.expanded {
+      width: 30%;
+    }
   }
 }

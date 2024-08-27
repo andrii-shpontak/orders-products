@@ -9,3 +9,5 @@ export { default as TypeSelector } from './TypeSelector/TypeSelector';
 export { default as OrderForm } from './OrderForm/OrderForm';
 export { default as CustomDateInput } from './CustomDateInput/CustomDateInput';
 export { default as ProductForm } from './ProductForm/ProductForm';
+export { default as AnimatedRoute } from './AnimatedRoute/AnimatedRoute';
+export { default as FullScreenLoader } from './FullScreenLoader/FullScreenLoader';

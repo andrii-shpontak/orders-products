@@ -13,18 +13,20 @@ const Orders: React.FC = () => {
   const { selectedOrder, handleOrderClick, handleDeleteClick, handleOrderClose } = useHandlers();
 
   return (
-    <div className='orders'>
+    <>
       <PageTitle title='Orders' count={orders.length} createLink={AbsoluteRoutes.createOrder} />
-      <div className={!!selectedOrder ? 'orders__wrapper' : ''}>
-        <OrdersList
-          orders={orders}
-          handleOrderClick={handleOrderClick}
-          handleDeleteClick={handleDeleteClick}
-          selectedOrder={selectedOrder}
-        />
+      <div className='orders'>
+        <div className={!!selectedOrder ? 'orders__wrapper expanded' : 'orders__wrapper'}>
+          <OrdersList
+            orders={orders}
+            handleOrderClick={handleOrderClick}
+            handleDeleteClick={handleDeleteClick}
+            selectedOrder={selectedOrder}
+          />
+        </div>
         <SelectedOrder selectedOrder={selectedOrder} handleClose={handleOrderClose} />
       </div>
-    </div>
+    </>
   );
 };
 
